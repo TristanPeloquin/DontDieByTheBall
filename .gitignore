@@ -1,3 +1,7 @@
-# Godot 4+ specific ignores
+# Ignore Godot binary files and temp data
+*.import
+.export/
+.settings/
+*.mon
 .godot/
-/android/
+.mono/
