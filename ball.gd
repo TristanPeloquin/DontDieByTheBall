@@ -26,7 +26,8 @@ func _integrate_forces(state):
 		
 func _physics_process(_delta):
 	if linear_velocity.length() > 0:  # the ball is moving
-		ray.target_position = linear_velocity.normalized() * 150  # Scale the ray length
+		# Scale the ray length proportional to speed of ball
+		ray.target_position = linear_velocity.normalized() * 150  
 		ray.force_raycast_update()  # Update immediately
 		
 	if ray.is_colliding():
