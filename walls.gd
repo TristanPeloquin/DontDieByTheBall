@@ -7,6 +7,7 @@ func _ready():
 	create_wall(Vector2(screen_size.x / 2, screen_size.y), Vector2(screen_size.x, 10)) # Bottom wall
 	create_wall(Vector2(0, screen_size.y / 2), Vector2(10, screen_size.y)) # Left wall
 	create_wall(Vector2(screen_size.x, screen_size.y / 2), Vector2(10, screen_size.y)) # Right wall
+	
 
 func create_wall(position, size):
 	var wall = StaticBody2D.new()
@@ -19,3 +20,6 @@ func create_wall(position, size):
 	
 	add_child(wall)
 	wall.add_child(shape)
+	
+#func create_area(position, size):
+	
