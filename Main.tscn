@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy5nllkekuqvu"]
+[gd_scene load_steps=7 format=3 uid="uid://dy5nllkekuqvu"]
 
-[ext_resource type="Texture2D" uid="uid://dqbvhlbuf0iuy" path="res://assets/Circle_-_black_simple.svg" id="1_jdp6n"]
+[ext_resource type="Texture2D" uid="uid://bhqk0ux3jsog6" path="res://assets/Circle_-_black_simple.svg" id="1_jdp6n"]
 [ext_resource type="Script" path="res://ball.gd" id="1_rtekc"]
 [ext_resource type="Script" path="res://walls.gd" id="3_hk1ai"]
+[ext_resource type="PackedScene" uid="uid://b7gdwcm1fcy0t" path="res://people.tscn" id="4_6rs34"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jp77x"]
 friction = 0.0
@@ -32,3 +33,5 @@ shape = SubResource("CircleShape2D_a2plx")
 
 [node name="Walls" type="Node2D" parent="."]
 script = ExtResource("3_hk1ai")
+
+[node name="Sprite2D" parent="." instance=ExtResource("4_6rs34")]
