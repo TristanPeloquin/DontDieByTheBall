@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+@onready var ray = $RayCast2D  # Reference to the RayCast2D node
+
+
 func _ready():
 	var random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	apply_impulse(random_direction * 200)  # Initial push
@@ -20,3 +23,12 @@ func _integrate_forces(state):
 		state.set_linear_velocity(new_direction * velocity.length())
 
 		print("Ball bounced! New direction: ", new_direction)
+		
+func _physics_process(_delta):
+	if linear_velocity.length() > 0:  # the ball is moving
+		ray.target_position = linear_velocity.normalized() * 150  # Scale the ray length
+		ray.force_raycast_update()  # Update immediately
+		
+	if ray.is_colliding():
+		var collider = ray.get_collider()  # Get the object it hit
+		print("Hit:", collider.name)
